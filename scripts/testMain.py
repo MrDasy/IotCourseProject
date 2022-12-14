@@ -69,6 +69,10 @@ def render_map(width, height):
         maptype="china",
         zoom=1.2,
         # is_roam=False,
+        itemstyle_opts={
+                # 强调颜色
+                "emphasis": {"areaColor": "#CEE5E8"}
+            }
     )
     mp.add(
         series_name="各国确诊人数",
@@ -76,7 +80,14 @@ def render_map(width, height):
         maptype="world",
         is_selected=False,
         is_map_symbol_show=False,
+        zoom=1.2,
+        itemstyle_opts={
+                # 强调颜色
+                "emphasis": {"areaColor": "#CEE5E8"}
+            }
     )
+    # 关闭标签
+    mp.set_series_opts(label_opts=opts.LabelOpts(is_show=False))
     mp.set_global_opts(
         visualmap_opts=opts.VisualMapOpts(
             max_=15000,

@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <div id="map" class="chart-container" style="width:970px; height:760px;"></div>
+    <div id="map" class="chart-container" style="width:1470px; height:820px;"></div>
     <script>
         var chart_map = echarts.init(
             document.getElementById('map'), 'white', {renderer: 'canvas'});
@@ -59,7 +59,7 @@
             "type": "map",
             "name": "\u5404\u7701\u5e02\u786e\u8bca\u4eba\u6570",
             "label": {
-                "show": true,
+                "show": false,
                 "position": "top",
                 "margin": 8
             },
@@ -209,13 +209,24 @@
             "zoom": 1.2,
             "mapValueCalculation": "sum",
             "showLegendSymbol": true,
-            "emphasis": {}
+            "itemStyle": {
+                "emphasis": {
+                    "areaColor": "#CEE5E8"
+                }
+            },
+            "emphasis": {},
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            }
         },
         {
             "type": "map",
             "name": "\u5404\u56fd\u786e\u8bca\u4eba\u6570",
             "label": {
-                "show": true,
+                "show": false,
                 "position": "top",
                 "margin": 8
             },
@@ -1114,10 +1125,21 @@
             "aspectScale": 0.75,
             "nameProperty": "name",
             "selectedMode": false,
-            "zoom": 1,
+            "zoom": 1.2,
             "mapValueCalculation": "sum",
             "showLegendSymbol": false,
-            "emphasis": {}
+            "itemStyle": {
+                "emphasis": {
+                    "areaColor": "#CEE5E8"
+                }
+            },
+            "emphasis": {},
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            }
         }
     ],
     "legend": [
