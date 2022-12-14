@@ -14,11 +14,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 601)
+        MainWindow.resize(1000, 860)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label_title = QtWidgets.QLabel(self.centralwidget)
-        self.label_title.setGeometry(QtCore.QRect(20, 10, 771, 41))
+        self.label_title.setGeometry(QtCore.QRect(70, 10, 860, 39))
         font = QtGui.QFont()
         font.setFamily("等线")
         font.setPointSize(18)
@@ -27,8 +27,9 @@ class Ui_MainWindow(object):
         self.label_title.setFont(font)
         self.label_title.setAlignment(QtCore.Qt.AlignCenter)
         self.label_title.setObjectName("label_title")
+
         self.webview = QtWebEngineWidgets.QWebEngineView(self.centralwidget)
-        self.webview.setGeometry(QtCore.QRect(9, 59, 781, 531))
+        self.webview.setGeometry(QtCore.QRect(10, 60, 980, 780))
         self.webview.setObjectName("webview")
         MainWindow.setCentralWidget(self.centralwidget)
         self.actionaaa = QtWidgets.QAction(MainWindow)
@@ -40,6 +41,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label_title.setText(_translate("MainWindow", "中国疫情地图"))
+        self.label_title.setText(_translate("MainWindow", "疫情地图"))
         self.actionaaa.setText(_translate("MainWindow", "aaa"))
 from PyQt5 import QtWebEngineWidgets

@@ -14,7 +14,7 @@ MAP_PATH = r"../output/china-covid-map.html"
 
 
 # 筛选出中国最新的数据，并转化成地图所用形式
-def data_convert(org_data):
+def china_data_convert(org_data):
     # 筛选出中国数据
     china_data = org_data[org_data['countryName'] == '中国']
     # 去重 最上面的就是最新的数据
@@ -29,13 +29,24 @@ def data_convert(org_data):
     p_data['name'].replace("西藏自治区", "西藏", inplace=True)
     return p_data
 
+def world_data_convert(org_data):
+    world_data = org_data[org_data['countryName'] != '中国']
+    p_data = world_data.drop_duplicates(subset=['provinceName'], keep="first").reset_index(drop=True)
+    p_data = p_data[p_data['provinceName'] != '中国'][['countryEnglishName', 'province_confirmedCount']]
+    p_data.rename(columns={'countryEnglishName': 'name', 'province_confirmedCount': 'count'}, inplace=True)
+    
+    p_data['name'].replace("United States of America", "United States", inplace=True)
+    p_data['name'].replace("United States of America", "United States", inplace=True)
+    return p_data
 
 # 渲染地图html
 def render_map(width, height):
     # 读取并处理数据
     org_data = pd.read_csv(DATA_PATH, encoding='utf-8')  # 初始数据
-    conv_data = data_convert(org_data)
-    list_data = list(zip(list(conv_data['name']), list(conv_data['count'])))
+    c_conv_data = china_data_convert(org_data)
+    w_conv_data = world_data_convert(org_data)
+    c_list_data = list(zip(list(c_conv_data['name']), list(c_conv_data['count'])))
+    w_list_data = list(zip(list(w_conv_data['name']), list(w_conv_data['count'])))
     # 配置地图参数
     mp = Map(
         init_opts=opts.InitOpts(
@@ -53,13 +64,24 @@ def render_map(width, height):
         """
     )
     mp.add(
-        series_name="确诊人数",
-        data_pair=list_data,
+        series_name="各省市确诊人数",
+        data_pair=c_list_data,
         maptype="china",
-        is_roam=False,
+        zoom=1.2,
+        # is_roam=False,
+    )
+    mp.add(
+        series_name="各国确诊人数",
+        data_pair=w_list_data,
+        maptype="world",
+        is_selected=False,
+        is_map_symbol_show=False,
     )
     mp.set_global_opts(
-        visualmap_opts=opts.VisualMapOpts(max_=15000),
+        visualmap_opts=opts.VisualMapOpts(
+            max_=15000,
+            range_color=['#FAD4D5','#E50000','#A30000']
+        ),
     )
     # 渲染
     mp.render(path=MAP_PATH)
