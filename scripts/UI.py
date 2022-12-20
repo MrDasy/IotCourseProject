@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'testUI.ui'
+# Form implementation generated from reading ui file 'UI.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -14,11 +14,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1500, 960)
+        MainWindow.resize(800, 601)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label_title = QtWidgets.QLabel(self.centralwidget)
-        self.label_title.setGeometry(QtCore.QRect(100, 10, 1300, 39))
+        self.label_title.setGeometry(QtCore.QRect(0, 10, 801, 41))
         font = QtGui.QFont()
         font.setFamily("等线")
         font.setPointSize(18)
@@ -27,10 +27,19 @@ class Ui_MainWindow(object):
         self.label_title.setFont(font)
         self.label_title.setAlignment(QtCore.Qt.AlignCenter)
         self.label_title.setObjectName("label_title")
-
         self.webview = QtWebEngineWidgets.QWebEngineView(self.centralwidget)
-        self.webview.setGeometry(QtCore.QRect(10, 60, 1480, 840))
+        self.webview.setGeometry(QtCore.QRect(9, 99, 781, 491))
         self.webview.setObjectName("webview")
+        self.testButton = QtWidgets.QPushButton(self.centralwidget)
+        self.testButton.setGeometry(QtCore.QRect(10, 20, 75, 23))
+        self.testButton.setObjectName("testButton")
+        self.dateLabel = QtWidgets.QLabel(self.centralwidget)
+        self.dateLabel.setGeometry(QtCore.QRect(300, 50, 221, 20))
+        font = QtGui.QFont()
+        font.setFamily("等线")
+        font.setPointSize(14)
+        self.dateLabel.setFont(font)
+        self.dateLabel.setObjectName("dateLabel")
         MainWindow.setCentralWidget(self.centralwidget)
         self.actionaaa = QtWidgets.QAction(MainWindow)
         self.actionaaa.setObjectName("actionaaa")
@@ -41,6 +50,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label_title.setText(_translate("MainWindow", "疫情地图"))
+        self.label_title.setText(_translate("MainWindow", "中国疫情地图"))
+        self.testButton.setText(_translate("MainWindow", "刷新"))
+        self.dateLabel.setText(_translate("MainWindow", "当前日期：YYYY-MM-DD"))
         self.actionaaa.setText(_translate("MainWindow", "aaa"))
 from PyQt5 import QtWebEngineWidgets

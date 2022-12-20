@@ -17,9 +17,9 @@
    <widget class="QLabel" name="label_title">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>0</x>
       <y>10</y>
-      <width>771</width>
+      <width>801</width>
       <height>41</height>
      </rect>
     </property>
@@ -42,10 +42,42 @@
     <property name="geometry">
      <rect>
       <x>9</x>
-      <y>59</y>
+      <y>99</y>
       <width>781</width>
-      <height>531</height>
+      <height>491</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="testButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>刷新</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dateLabel">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>50</y>
+      <width>221</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>等线</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>当前日期：YYYY-MM-DD</string>
     </property>
    </widget>
   </widget>
